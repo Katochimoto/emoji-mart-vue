@@ -195,12 +195,6 @@ export default {
     },
   },
 
-  watch: {
-    searchText (data) {
-      this.data.search(data, this.maxSearchResults)
-    },
-  },
-
   methods: {
     getItemprops (index) {
       const data = this.items[index]
