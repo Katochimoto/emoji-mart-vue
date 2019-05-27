@@ -141,7 +141,7 @@ export default {
     items () {
       if (this.searchText) {
         const emojis = this.data.search(this.searchText, this.maxSearchResults)
-        return chunk(emojis, 8)
+        return chunk(emojis, this.perLine)
       }
 
       return this.categories.reduce((out, category) => {
@@ -155,7 +155,7 @@ export default {
             name: category.name,
             first: category.first,
           },
-        }, chunk(category.emojis, 8))
+        }, chunk(category.emojis, this.perLine))
       }, [])
     },
 
