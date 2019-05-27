@@ -20,10 +20,6 @@ export default {
       type: Boolean,
       default: false
     },
-    onSearch: {
-      type: Function,
-      required: true
-    }
   },
   data() {
     return {

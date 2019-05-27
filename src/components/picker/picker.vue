@@ -13,7 +13,7 @@ export default {
   props: {
     ...PickerProps,
     data: {
-      type: Object,
+      type: EmojiIndex,
       default() {
         return index
       }

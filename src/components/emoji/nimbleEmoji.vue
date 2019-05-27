@@ -1,5 +1,5 @@
 <template>
-  <span
+  <div
     v-if="view.canRender"
     :title="view.title"
     :data-title="title"
@@ -8,10 +8,16 @@
     @mouseleave="onMouseLeave"
     @click="onClick"
   >
-    <span :class="view.cssClass" :style="view.cssStyle">{{
-      view.content
-    }}</span>
-  </span>
+    <div
+      :class="{
+        'emoji-mart-emoji-content': true,
+        [ view.cssClass ]: true
+      }"
+      :style="view.cssStyle"
+    >
+      {{ view.content }}
+    </div>
+  </div>
 </template>
 
 <script>

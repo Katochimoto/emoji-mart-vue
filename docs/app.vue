@@ -65,7 +65,7 @@
           <input
             type="text"
             :placeholder="slotProps.i18n.search"
-            v-on:input="slotProps.onSearch($event.target.value)"
+            v-bind="slotProps"
           />
         </template>
         <template slot="previewTemplate" slot-scope="slotProps">
@@ -118,7 +118,7 @@ const CUSTOM_EMOJIS = [
     name: 'Party Parrot',
     short_names: ['parrot'],
     keywords: ['party'],
-    imageUrl: './images/parrot.gif',
+    imageUrl: 'images/parrot.gif',
   },
   {
     name: 'Octocat',
