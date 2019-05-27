@@ -1,6 +1,4 @@
 node_modules/
-dist/
-dist-es/
 stats.json
 report.html
 *.tags
