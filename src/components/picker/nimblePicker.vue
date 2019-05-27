@@ -85,7 +85,6 @@ import { deepMerge, measureScrollbar } from '../../utils'
 import { EmojiIndex } from '../../utils/emoji-data'
 import { PickerProps } from '../../utils/shared-props'
 import Anchors from '../anchors'
-import Category from '../category'
 import Preview from '../preview'
 import CategoryItem from '../CategoryItem'
 
@@ -111,7 +110,6 @@ export default {
   components: {
     VirtualList,
     Anchors,
-    Category,
     Preview,
   },
 
