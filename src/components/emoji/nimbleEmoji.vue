@@ -8,7 +8,21 @@
     @mouseleave="onMouseLeave"
     @click="onClick"
   >
+    <img
+      v-if="view.getImageUrl()"
+      :src="view.getImageUrl()"
+      :alt="view.id"
+      :style="view.cssStyle"
+      :class="{
+        'emoji-mart-emoji-content': true,
+        [ view.cssClass ]: true
+      }"
+      decoding="async"
+      importance="low"
+      loading="lazy"
+    />
     <div
+      v-else
       :class="{
         'emoji-mart-emoji-content': true,
         [ view.cssClass ]: true

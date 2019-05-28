@@ -19,7 +19,21 @@
         @mouseleave="$emit('leave', item.getEmoji())"
         @click="$emit('click', item.getEmoji())"
       >
+        <img
+          v-if="item.getImageUrl()"
+          :src="item.getImageUrl()"
+          :alt="item.id"
+          :style="item.cssStyle"
+          :class="{
+            'emoji-mart-emoji-content': true,
+            [ item.cssClass ]: true
+          }"
+          decoding="async"
+          importance="low"
+          loading="lazy"
+        />
         <div
+          v-else
           :class="{
             'emoji-mart-emoji-content': true,
             [ item.cssClass ]: true

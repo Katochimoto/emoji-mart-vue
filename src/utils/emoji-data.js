@@ -505,6 +505,10 @@ export class EmojiView {
     return this._emoji.getSkin(this._skin)
   }
 
+  getImageUrl () {
+    return this._isCustom() && this.getEmoji()._data.imageUrl
+  }
+
   _canRender() {
     return (
       this._isCustom() || this._isNative() || this._hasEmoji() || this._fallback
@@ -512,17 +516,17 @@ export class EmojiView {
   }
 
   _cssClass() {
-    return ['emoji-set-' + this._set, 'emoji-type-' + this._emojiType()]
+    return `emoji-set-${this._set} emoji-type-${this._emojiType()}`
   }
 
   _cssStyle(emojiSize) {
     let cssStyle = {}
-    if (this._isCustom()) {
-      cssStyle = {
-        backgroundImage: 'url(' + this.getEmoji()._data.imageUrl + ')',
-        backgroundSize: '100%',
-      }
-    }
+    // if (this._isCustom()) {
+    //   cssStyle = {
+    //     backgroundImage: 'url(' + this.getEmoji()._data.imageUrl + ')',
+    //     backgroundSize: '100%',
+    //   }
+    // }
     if (this._hasEmoji() && !this._isNative()) {
       cssStyle = {
         backgroundPosition: this.getEmoji().getPosition(),

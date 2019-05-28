@@ -35,7 +35,7 @@
       :item="CategoryItem"
       :itemcount="items.length"
       :itemprops="getItemprops"
-      :onscroll="onScrollUpdate"
+      :onscroll="onScrollUpdateLazy"
     />
     <div
       v-else
@@ -78,6 +78,7 @@ import VirtualList from 'vue-virtual-scroll-list'
 import chunk from 'lodash/chunk'
 import findLast from 'lodash/findLast'
 import find from 'lodash/find'
+import debounce from 'lodash/debounce'
 
 import store from '../../utils/store'
 import frequently from '../../utils/frequently'
@@ -135,6 +136,18 @@ export default {
       categories: Object.freeze(categories),
       CategoryItem,
     }
+  },
+
+  created () {
+    this.onEmojiEnterLazy = debounce(this.onEmojiEnter, 250)
+    this.onScrollUpdateLazy = debounce(this.onScrollUpdate, 250, {
+      maxWait: 500,
+    })
+  },
+
+  beforeDestroy () {
+    this.onEmojiEnterLazy.cancel()
+    this.onScrollUpdateLazy.cancel()
   },
 
   computed: {
@@ -212,7 +225,7 @@ export default {
           emojiSize: this.emojiSize,
         },
         on: {
-          enter: this.onEmojiEnter,
+          enter: this.onEmojiEnterLazy,
           leave: this.onEmojiLeave,
           click: this.onEmojiClick,
         },
@@ -251,6 +264,7 @@ export default {
     },
 
     onEmojiLeave (emoji) {
+      this.onEmojiEnterLazy.cancel()
       this.previewEmoji = null
     },
 

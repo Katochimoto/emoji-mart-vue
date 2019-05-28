@@ -163,19 +163,9 @@
   cursor: default;
 }
 
-.emoji-mart-emoji-group .emoji-mart-emoji:hover:before {
-  z-index: 0;
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+.emoji-mart-emoji-group .emoji-mart-emoji:hover {
   background-color: #f4f4f4;
   border-radius: 100%;
-  opacity: 0;
-}
-
-.emoji-mart-emoji-group .emoji-mart-emoji:hover:before {
-  opacity: 1;
 }
 
 .emoji-mart-no-results {
