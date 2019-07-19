@@ -8,6 +8,7 @@ var TEST = process.env.NODE_ENV === 'test'
 
 module.exports = Object.assign(
   {
+    mode: 'production',
     entry: path.resolve('src/index.js'),
     output: {
       path: path.resolve('dist'),
@@ -98,16 +99,4 @@ module.exports = Object.assign(
 
     bail: true,
   },
-  !PROD
-    ? {
-        mode: 'development',
-        devtool: 'inline-source-map',
-        watch: true,
-        devServer: {
-          inline: true,
-        },
-      }
-    : {
-        mode: 'production',
-      },
 )
