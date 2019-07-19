@@ -4,8 +4,8 @@ export { default as Preview } from './preview'
 export { default as Search } from './search'
 export { default as Skins } from './skins'
 
-export { default as Emoji } from './emoji/emoji'
+// export { default as Emoji } from './emoji/emoji'
 export { default as NimbleEmoji } from './emoji/nimbleEmoji'
 
-export { default as Picker } from './picker/picker'
+// export { default as Picker } from './picker/picker'
 export { default as NimblePicker } from './picker/nimblePicker'
